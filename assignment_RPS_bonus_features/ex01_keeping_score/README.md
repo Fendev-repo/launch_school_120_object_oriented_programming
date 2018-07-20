@@ -52,7 +52,7 @@ Right now, the game doesn't have very much dramatic flair. It'll be more interes
 
 	- Associations with Collaborators
 
-	- ** CURRENT CLASSES ***
+	- *** CURRENT CLASSES ***
 
 		- Computer class: 
 			- Single Responsibilty
