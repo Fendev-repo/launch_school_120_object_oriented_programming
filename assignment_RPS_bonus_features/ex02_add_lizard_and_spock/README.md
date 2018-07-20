@@ -34,12 +34,13 @@ New game rules
 			- how would I store the rules for effective storage and access
 				- Method call # who_has_best_move(player, computer) # => :player / :computer
 					
-					winning_moves = { scissors: ['paper', 'lizard'],
-														paper: 		['rock', 'spock'],
-														rock: 		['lizard', scissors],
-														lizard: 	['spock', 'paper'],
-														spock: 		['scissors', 'rock']
-													}
+					winning_moves = { 
+						scissors: ['paper', 'lizard'],
+						paper: 		['rock', 'spock'],
+						rock: 		['lizard', scissors],
+						lizard: 	['spock', 'paper'],
+						spock: 		['scissors', 'rock']}
+						
 					players_winning_options = winning_moves[player.move]
 					players_winning_options.include?(computer.move) ? :player : :computer # => true / false
 
