@@ -40,16 +40,21 @@ New game rules
 						rock: 		['lizard', scissors],
 						lizard: 	['spock', 'paper'],
 						spock: 		['scissors', 'rock']}
-						
+
 					players_winning_options = winning_moves[player.move]
-					players_winning_options.include?(computer.move) ? :player : :computer # => true / false
+					players_winning_options.include?(computer.move) ? :player : :computer 
+						- # => true / false
 
 
 			- Where should the new object be instantiated
-				- OPTION A: a game has_a set of rules; therefore the RuleBook class could be a collaborator object within RPSGame class
-				- OPTION B: a move must also adhere to a set of rules; therefore the RuleBook class could also be a collaborator object within Move class.  
+				- OPTION A: a game has_a set of rules; therefore the RuleBook 
+				class could be a collaborator object within RPSGame class
+				
+				- OPTION B: a move must also adhere to a set of rules; therefore 
+				the RuleBook class could also be a collaborator object within Move class.  
 				- After consideration - I think a game has_a rulebook.
-					- therefore the RuleBook class will be instantiated as a collaborator object within the RPSGame class
+					- therefore the RuleBook class will be instantiated as a collaborator 
+					object within the RPSGame class
 		
 		- Reasonable messages for an object to receive
 			- does this move beat this move
@@ -117,7 +122,8 @@ New game rules
 
 		- Player class:
 			- Single Responsibility
-				- To represent the 'Abstract Class' for Humans and Computers to inherit from
+				- To represent the 'Abstract Class' for Humans 
+					and Computers to inherit from
 			- Public Interface
 				- none currently
 			- Collaborator Objects
@@ -149,7 +155,8 @@ New game rules
 	- Orchestrate
 		Association
 		- an RPSGame has_a Scorecard
-			- Therefore a Scorecard will be instantiated as an collaborator object in the RPSGame class
+			- Therefore a Scorecard will be instantiated as an collaborator 
+				object in the RPSGame class
 
 		Orchestration Algorithm
 			- RPSGame object is instantiated
@@ -173,8 +180,10 @@ New game rules
 			- computer.choose()
 			- display_moves()
 			- update_scorecard
-				- who_won? # This needs to be modified to incorporate the new Rulebook class
-					- RuleBook#who_has_best_move(player, computer)  # This needs to be added
+				- who_won? # This needs to be modified to incorporate the 
+					new Rulebook class
+					- RuleBook#who_has_best_move(player, computer)  
+						# This needs to be added
 
       - next unless scorecard.winning_score_reached?
       - congratulate_winner
