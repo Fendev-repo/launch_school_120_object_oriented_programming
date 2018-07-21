@@ -18,15 +18,16 @@ What would happen if we went even further and introduced 5 more classes, one for
 						have a 'Player has_a chosen_move', that would mean that much of the
 						existing code would need to be changed; as well as moving selection
 						complexity to both the Human and Computer classes.  Therefore, I 
-						chosen go with a 'Move has_a chosen_move'
+						chosen go with a 'Move has_a chosen value' and value is a new class
+						object.
 
 			- what behavior should each new Value object (i.e., paper, rock etc) have?
 				- should simple confirm its value
-					- value()
+					- name()
 
 			- should the Move class be the superclass for each of the moves types?
 				- No, as I have decided that the Move class will have a 
-					collaborator object - I will utulize the existing instance
+					collaborator object - I will utilize the existing instance
 					variable 'value' - and store a collaborator object called value
 								
 			- Should there be any changes to the existing Move class?
@@ -35,7 +36,7 @@ What would happen if we went even further and introduced 5 more classes, one for
 						and modify the existing instance methods methods to
 						enable the validation of the new Value objects. 
 						i.e.	def lizard?(value)
-										value.value == 'lizard'
+										value.name == 'lizard'
 									end
 				- I will also need to add the ability to instantiate the correct
 					value based on the selected move.  i.e Paper class - or Spock etc.
@@ -50,7 +51,7 @@ What would happen if we went even further and introduced 5 more classes, one for
 
 		- Reasonable messages for an object to receive
 			- what is the value?
-				value? => 'Spock'
+				- name() => 'Spock'
 
 	- Extract nouns and verbs
 		- nouns
@@ -151,7 +152,11 @@ What would happen if we went even further and introduced 5 more classes, one for
 			- Public Interface
 				- value? => 'spock'
 			- Collaborator Objects
-				- none currently		
+				- none currently
+
+		******** repetitive code ******* 
+			Note: same above class info for Rock, Scissors, Lizard and Spock classes.
+
 
 	- ** END SOLUTION CLASS(ES) ***
 
