@@ -1,4 +1,3 @@
-require 'pry-byebug'
 require_relative 'computer_class'
 require_relative 'human_class'
 require_relative 'player_class'
