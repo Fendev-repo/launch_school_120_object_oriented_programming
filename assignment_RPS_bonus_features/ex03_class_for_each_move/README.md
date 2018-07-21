@@ -35,14 +35,11 @@ What would happen if we went even further and introduced 5 more classes, one for
 					- I will need to modify the value instance variable
 						and modify the existing instance methods methods to
 						enable the validation of the new Value objects. 
-	
-```ruby 
-	# i.e.	
-	def lizard?(value)
-		value.name == 'lizard'
-	end
+						# i.e.	
+							def lizard?(value)
+								value.name == 'lizard'
+							end
 
-```					
 				- I will also need to add the ability to instantiate the correct
 					value based on the selected move.  i.e Paper class - or Spock etc.
 
