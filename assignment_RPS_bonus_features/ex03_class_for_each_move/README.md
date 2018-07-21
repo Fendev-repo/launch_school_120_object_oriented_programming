@@ -22,7 +22,7 @@ What would happen if we went even further and introduced 5 more classes, one for
 						object.
 
 			- what behavior should each new Value object (i.e., paper, rock etc) have?
-				- should simple confirm its value
+				- should simply confirm its value
 					- name()
 
 			- should the Move class be the superclass for each of the moves types?
