@@ -24,23 +24,23 @@ We have a list of robot names for our Computer class, but other than the name, t
 					commentary from each computer personality.
 					Example:
 						lost_round_comments = {
-							R2d2:['Beep-bee-bee-boop-bee-doo-weep', 
-										'WOOOAH twee-vwoop VRrrUHD DEda dah:'],
-							hal: ['I have just picked up a fault in the AE-35 unit.'],
-										[' I know I've made some very poor decisions recently, 
-										but I can give you my complete assurance that my work 
-										will be back to normal. I've still got the greatest 
-										enthusiasm and confidence in the mission. And I want to 
-										help you.']
-							chappie: ['No. I can't shoot people. Chappie no crimes!'],
-											['You've hurt my people!'],
-							sonny: ['Technically I was never alive, but I appreciate your 
-											concern.'],
-										['Denser alloy. My father gave it to me. I think 
-										he wanted me to kill you.']
-							number_5: ['Hey, laser lips, your mama was a snow blower.'],
-												['Program say to kill, to disassemble, to make 
-												dead. Number 5 cannot.']								
+						R2d2:['Beep-bee-bee-boop-bee-doo-weep', 
+						WOOOAH twee-vwoop VRrrUHD DEda dah:'],
+						hal: ['I have just picked up a fault in the AE-35 unit.'],
+						[' I know I've made some very poor decisions recently, 
+						but I can give you my complete assurance that my work 
+						will be back to normal. I've still got the greatest 
+						enthusiasm and confidence in the mission. And I want to 
+						help you.']
+						chappie: ['No. I can't shoot people. Chappie no crimes!'],
+						['You've hurt my people!'],
+						sonny: ['Technically I was never alive, but I appreciate your 
+						concern.'],
+						['Denser alloy. My father gave it to me. I think 
+						he wanted me to kill you.']
+						number_5: ['Hey, laser lips, your mama was a snow blower.'],
+						['Program say to kill, to disassemble, to make 
+						dead. Number 5 cannot.']								
 			- What is the best way to introduce this commentary in the existing
 				game?									
 				I think the right way to introduce this new functionality into 
