@@ -13,17 +13,17 @@ Come up with some rules based on the history of moves in order for the computer 
 			-	How do I programmatically identify the 'winning rate' of each move option
 				for both player and computer - after each round has been concluded
 					- each of players winning moves will need to be given a success rate
-						- success rate = number of wins per move - based on the rounds played
-							at that time
-							- players_winning_move_success_rates[ spock: 2, paper: 0]
+					- success rate = number of wins per move - based on the rounds played
+						at that time
+					- players_winning_move_success_rates[ spock: 2, paper: 0]
 					
 					Example 4 round game A: ** Current move_history solution
-						@move_history = { player: ['tie', 'paper', 'spock', 'paper'], 
+					@move_history = { player: ['tie', 'paper', 'spock', 'paper'], 
 														computer: ['tie', 'lizard','lizard','rock' ] }
 
 
 					Example 4 round game B: ** Potential new move_history solution
-						@move_history = { player: ['tie', 'lizard', 'paper', 'spock'],
+					@move_history = { player: ['tie', 'lizard', 'paper', 'spock'],
 														computer: ['tie', 'lizard','lizard','rock' ] }
 
 			
@@ -43,20 +43,20 @@ Come up with some rules based on the history of moves in order for the computer 
 					choice, then the 
 					computer will randomly choose from the two options that best 
 					neutralizes the players most successful attack
-						- example: 
-							round 4 of 10.
-								Player has won using :spock 2 times - which is the most 
-								wins for any one option for the player.
-								- the computer then ramdomly selects from the two options 
-									that best neutralise and win over that attack.  
-									['scissors', 'rock'].sample
-								- the process then repeats 
-									- and the players_winning_move_success_rate	is updated
-									- or if unchanged - then the same defence/attack profile 
-										is used.
-									- and if changed - then the new 
-										players_winning_move_success_rate number one 
-										is selected for neutralisation
+					- example: 
+					round 4 of 10.
+					Player has won using :spock 2 times - which is the most 
+					wins for any one option for the player.
+					- the computer then ramdomly selects from the two options 
+						that best neutralise and win over that attack.  
+						['scissors', 'rock'].sample
+					- the process then repeats 
+						- and the players_winning_move_success_rate	is updated
+						- or if unchanged - then the same defence/attack profile 
+							is used.
+						- and if changed - then the new 
+							players_winning_move_success_rate number one 
+							is selected for neutralisation
 
 			- Do I need a custom object to enable a solution
 				No, I think a Hash initialized in the scorecard as a collaborator 
@@ -195,13 +195,13 @@ Come up with some rules based on the history of moves in order for the computer 
 			- RPSGame object is instantiated
 				- Human class is instantiated
 					- Move class is instantiated
-						- a specific value is instantiated - Spock - Paper etc
+					- a specific value is instantiated - Spock - Paper etc
 				- Computer class is instantiated
 					- Move class is instantiated	
-						- a specific value is instantiated - Spock - Paper etc
+					- a specific value is instantiated - Spock - Paper etc
 				- Scorecard class is instantiated
-						- A Hash is instantiated
-							- and assigned to instance variable @move_history
+					- A Hash is instantiated
+					- and assigned to instance variable @move_history
 				- Rulebook class is instantiated
 
 			- display_welcome_message()
