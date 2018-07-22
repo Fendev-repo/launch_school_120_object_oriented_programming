@@ -19,21 +19,20 @@ Come up with some rules based on the history of moves in order for the computer 
 					
 					Example 4 round game A: ** Current move_history solution
 					@move_history = { player: ['tie', 'paper', 'spock', 'paper'], 
-														computer: ['tie', 'lizard','lizard','rock' ] }
+					 computer: ['tie', 'lizard','lizard','rock' ] }
 
 
 					Example 4 round game B: ** Potential new move_history solution
 					@move_history = { player: ['tie', 'lizard', 'paper', 'spock'],
-														computer: ['tie', 'lizard','lizard','rock' ] }
+					 computer: ['tie', 'lizard','lizard','rock' ] }
 
 			
 			- What is the best way for the computer to select a move that is most 
-			  likely - based 	 on game history to win
+			  likely based on game history to win
 				- the computer will select the best option to neutralise the players 
 					most 	
 					successful moves - in order
 					example: 
-
 					players_winning_move_success_rates[ spock: 2, paper: 0]
 					players_winning_move_success_rate.max_by{ |k, v| v }[0] => 'spock'
 			
