@@ -23,44 +23,53 @@ Come up with some rules based on the history of moves in order for the computer 
 
 
 					Example 4 round game B: ** Potential new move_history solution
-						@move_history = { player: [['tie', 'lizard'], 'paper', 'spock', 'paper'], 
+						@move_history = { player: ['tie', 'lizard', 'paper', 'spock'],
 														computer: ['tie', 'lizard','lizard','rock' ] }
 
 			
-			- What is the best way for the computer to select a move that is most likely - based 	 on game history to win
-				- the computer will select the best option to neutralise the players most 	
+			- What is the best way for the computer to select a move that is most 
+			  likely - based 	 on game history to win
+				- the computer will select the best option to neutralise the players 
+					most 	
 					successful moves - in order
 					example: 
 
 					players_winning_move_success_rates[ spock: 2, paper: 0]
 					players_winning_move_success_rate.max_by{ |k, v| v }[0] => 'spock'
 			
-			- How would the computer neutralise a statistically probable future attack - and at 	the same time increase the probability of winning
-				- Once the computer has the name of the players most successful choice, then the 
-					computer will randomly choose from the two options that best neutralizes the
-					players most successful attack
+			- How would the computer neutralise a statistically probable future 
+				attack - and at 	the same time increase the probability of winning
+				- Once the computer has the name of the players most successful 
+					choice, then the 
+					computer will randomly choose from the two options that best 
+					neutralizes the players most successful attack
 						- example: 
 							round 4 of 10.
-								Player has won using :spock 2 times - which is the most wins for any one
-								option for the player.
-								- the computer then ramdomly selects from the two options that 
-									best neutralise and win over that attack.  ['scissors', 'rock'].sample
+								Player has won using :spock 2 times - which is the most 
+								wins for any one option for the player.
+								- the computer then ramdomly selects from the two options 
+									that best neutralise and win over that attack.  
+									['scissors', 'rock'].sample
 								- the process then repeats 
 									- and the players_winning_move_success_rate	is updated
-									- or if unchanged - then the same defence/attack profile is used.
-									- and if changed - then the new players_winning_move_success_rate number
-										one is selected for neutralisation
+									- or if unchanged - then the same defence/attack profile 
+										is used.
+									- and if changed - then the new 
+										players_winning_move_success_rate number one 
+										is selected for neutralisation
 
 			- Do I need a custom object to enable a solution
-				No, I think a Hash initialized in the scorecard as a collaborator object
-				will be fine.
-				- I think 'a scorecard has_a player_move_success_rate' seems reasonable				
+				No, I think a Hash initialized in the scorecard as a collaborator 
+				object will be fine.
+				- I think 'a scorecard has_a player_move_success_rate' seems 
+					reasonable				
 
 		- Reasonable messages for an object to receive
 			- what is the players most successful move so far
-				- players_most_successful_move_so_far
-			- what is the best move for then computer to neutralise the players	best move
-				- counter_attack
+				- players_most_successful_move_so_far()
+			- what is the best move for then computer to neutralise the 
+				players	best move
+					- counter_attack()
 
 	- Extract nouns and verbs
 		- nouns
