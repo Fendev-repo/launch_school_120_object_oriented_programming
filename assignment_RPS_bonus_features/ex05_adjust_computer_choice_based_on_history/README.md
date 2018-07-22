@@ -10,7 +10,7 @@ Come up with some rules based on the history of moves in order for the computer 
 ### PEAOS
 	- Problem
 		- sub-problems
-			-	How do I programmatically identify the 'winning rate' of each move option
+			- How do I programmatically identify the 'winning rate' of each move option
 				for both player and computer - after each round has been concluded
 					- each of players winning moves will need to be given a success rate
 					- success rate = number of wins per move - based on the rounds played
@@ -22,9 +22,9 @@ Come up with some rules based on the history of moves in order for the computer 
 					 computer: ['tie', 'lizard','lizard','rock' ] }
 
 
-					Example 4 round game B: ** Potential new move_history solution
-					@move_history = { player: ['tie', 'lizard', 'paper', 'spock'],
-					 computer: ['tie', 'lizard','lizard','rock' ] }
+					Example 4 round game B: ** Potential new win_history solution
+					@player_success_rates  = { paper: 0, rock: 0, scissors: 0,
+                               lizard: 0, spock: 0 }
 
 			
 			- What is the best way for the computer to select a move that is most 
