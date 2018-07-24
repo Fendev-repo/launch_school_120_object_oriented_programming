@@ -10,7 +10,7 @@ class Computer < Player
                         spock:    %w(lizard paper) }.freeze
 
   def set_name
-    self.name = ['R2D2', 'Hal', 'Chappie', 'Sonny', 'Number 5'].sample
+    self.name = %w(R2D2 Hal Chappie Sonny Number5).sample
   end
 
   def vent_over_loss
@@ -45,9 +45,9 @@ class Computer < Player
                  concern.',
                  'Denser alloy. My father gave it to me. I think
                  he wanted me to kill you.'],
-      number_5: ['Hey, laser lips, your mama was a snow blower.',
-                 'Program say to kill, to disassemble, to make
-                 dead. Number 5 cannot.'] }
+      number5: ['Hey, laser lips, your mama was a snow blower.',
+                'Program say to kill, to disassemble, to make
+                dead. Number 5 cannot.'] }
   end
   # rubocop:enable MethodLength
 end

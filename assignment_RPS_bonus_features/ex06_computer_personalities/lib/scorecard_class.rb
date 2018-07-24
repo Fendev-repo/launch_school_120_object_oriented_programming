@@ -1,6 +1,6 @@
 # To represent the scorecard for each game played
 class Scorecard
-  WIN_SCORE = 10
+  WIN_SCORE = 3
   attr_accessor :score, :move_history, :player_success_rates
 
   def initialize
@@ -12,6 +12,13 @@ class Scorecard
 
   def players_most_successful_move_so_far
     @player_success_rates.max_by { |_, v| v }
+  end
+
+  def reset_to_zero
+    move_history[:player] = []
+    move_history[:computer] = []
+    player_success_rates.each { |k, _| player_success_rates[k] = 0 }
+    score.each { |k, _| score[k] = 0 }
   end
 
   def update_history(winner, both_moves)

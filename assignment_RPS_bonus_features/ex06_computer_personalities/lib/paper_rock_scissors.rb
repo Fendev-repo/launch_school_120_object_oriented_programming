@@ -40,24 +40,31 @@ class RPSGame
     rulebook.who_has_best_move(human, computer)
   end
 
-  def play_again?
-    answer = nil
-    loop do
-      puts 'Would you like to play again? (y/n)'
-      answer = gets.chomp.downcase
-      break if %w(y n).include?(answer)
-      puts 'Sorry, must be y or n.'
-    end
-
-    return false if answer == 'n'
-    return true if answer == 'y'
+  def valid_answer?(user_reply)
+    u_reply = user_reply.downcase
+    u_reply == 'y' || u_reply == 'n'
   end
 
-  def clear_terminal
+  def player_wants_another_round?
+    answer = nil
+    puts 'Would you like to play again? (y/n)'
+    loop do
+      answer = gets.chomp.downcase
+      break if valid_answer?(answer)
+      puts 'Sorry, must be y or n.'
+    end
+    answer == 'y' ? true : false
+  end
+
+  def clear_cli
+    system 'clear'
+  end
+
+  def prep_next_round
     sleep 4
     puts ' => and now clearing the terminal for the next round!'
-    sleep 5
-    system 'clear'
+    sleep 2
+    clear_cli
   end
 
   def play_round
@@ -73,14 +80,19 @@ class RPSGame
     display_welcome_message
     loop do
       play_round
-      clear_terminal
+      prep_next_round
       next unless scorecard.winning_score_reached?
       congratulate_winner
-      break unless play_again?
+      scorecard.reset_to_zero
+      break unless player_wants_another_round?
     end
     display_goodbye_message
   end
 end
 
-game = RPSGame.new
-game.play
+def play_new_game
+  game = RPSGame.new
+  game.play
+end
+
+play_new_game
