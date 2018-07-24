@@ -1,6 +1,6 @@
 # To represent the scorecard for each game played
 class Scorecard
-  WIN_SCORE = 3
+  WIN_SCORE = 10
   attr_accessor :score, :move_history, :player_success_rates
 
   def initialize

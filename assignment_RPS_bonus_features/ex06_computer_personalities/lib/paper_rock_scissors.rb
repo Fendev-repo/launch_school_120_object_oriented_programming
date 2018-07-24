@@ -53,7 +53,7 @@ class RPSGame
       break if valid_answer?(answer)
       puts 'Sorry, must be y or n.'
     end
-    answer == 'y' ? true : false
+    answer == 'y'
   end
 
   def clear_cli

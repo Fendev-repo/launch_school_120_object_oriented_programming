@@ -16,23 +16,23 @@ class Move
   end
 
   def scissors?
-    @value.name == 'scissors'
+    name == 'scissors'
   end
 
   def rock?
-    @value.name == 'rock'
+    name == 'rock'
   end
 
   def paper?
-    @value.name == 'paper'
+    name == 'paper'
   end
 
   def lizard?
-    @value.name == 'lizard'
+    name == 'lizard'
   end
 
   def spock?
-    @value.name == 'spock'
+    name == 'spock'
   end
 
   def to_s
