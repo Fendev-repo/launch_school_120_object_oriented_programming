@@ -57,7 +57,7 @@ class Scorecard
   end
 
   def winning_score_reached?
-    score[:human] >= WIN_SCORE || score[:computer] >= WIN_SCORE ? true : false
+    score[:human] >= WIN_SCORE || score[:computer] >= WIN_SCORE
   end
 
   private
