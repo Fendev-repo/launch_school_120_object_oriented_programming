@@ -21,6 +21,6 @@ turns marking a square.  The first player to mark 3 squares in a row wins.
 			- play 
 			- mark
 
-### Collaborator associations
-### Orchestrate objects
 ### Spike
+### Collaborator associations
+### Orchestration engine
