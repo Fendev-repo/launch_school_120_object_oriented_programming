@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 # Responsible for keeping all the methods that interact with the terminal
 module Interactable
   def display_welcome_message
@@ -9,8 +11,8 @@ module Interactable
     puts 'Thanks for playing Tic Tac Toe! Goodbye!'
   end
 
-  def display_board(clear = true)
-    clear_cli if clear
+  def display_board(screen = {})
+    clear_cli if screen[:clear_screen]
     puts "You're a #{human.marker}.  Computer is a #{computer.marker}"
     puts ''
     puts '      |     |'
@@ -39,7 +41,7 @@ module Interactable
   end
 
   def display_result
-    display_board
+    display_board(clear_screen: true)
 
     case board.detect_winner
     when human.marker

@@ -3,6 +3,8 @@ require_relative 'player_class'
 require_relative 'interactable_module'
 require 'pry-byebug'
 
+
+
 # Responsible for orchestrating the TTT game play
 class TTTGame
   include Interactable
@@ -27,7 +29,7 @@ class TTTGame
     display_welcome_message
 
     loop do
-      display_board(false)
+      display_board(clear_screen: false)
 
       loop do
         human_moves
@@ -36,7 +38,7 @@ class TTTGame
         computer_moves
         break if board.someone_won? || board.full?
 
-        display_board
+        display_board(clear_screen: true)
       end
       display_result
       break unless play_again?
