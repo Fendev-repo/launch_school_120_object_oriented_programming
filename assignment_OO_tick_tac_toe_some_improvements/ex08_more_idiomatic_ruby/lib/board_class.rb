@@ -17,10 +17,6 @@ class Board
     squares[num].marker = marker
   end
 
-  def set_square_at(key, marker)
-    @squares[key].marker = marker
-  end
-
   def unmarked_keys
     @squares.keys.select { |key| @squares[key].unmarked? }
   end
