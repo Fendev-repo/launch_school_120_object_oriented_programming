@@ -13,6 +13,10 @@ class Board
     reset
   end
 
+  def []=(num, marker)
+    squares[num].marker = marker
+  end
+
   def set_square_at(key, marker)
     @squares[key].marker = marker
   end
@@ -64,7 +68,6 @@ class Board
   # returns winning marker or nil
   def winning_marker
     WINNING_LINES.each do |line|
-      # binding.pry
       if count_human_marker(@squares.values_at(*line)) == 3
         return TTTGame::HUMAN_MARKER
       elsif count_computer_marker(@squares.values_at(*line)) == 3

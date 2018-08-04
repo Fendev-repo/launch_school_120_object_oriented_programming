@@ -25,7 +25,7 @@ module Interactable
       break if board.unmarked_keys.include?(square)
       puts "Sorry, that's not a valid choice."
     end
-    board.squares[square].marker = human.marker
+    board[square] = human.marker
   end
 
   def display_result

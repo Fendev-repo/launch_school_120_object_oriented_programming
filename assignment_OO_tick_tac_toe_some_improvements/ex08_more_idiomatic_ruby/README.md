@@ -11,7 +11,9 @@ Though we no longer need the Board#get_square_at method, we still need the Board
 			better.  I simply added a attr_accessor method for 
 			the squares instance variable - which then allows
 			the following invocation:
-			board[square] = human.marker 
+			board[square] = human.marker
+		- I also overrode the Board#[]= method to make the
+			assignment of Board.squares easier and cleaner. 	 
 
 	- Sub-problems
 ### Examples

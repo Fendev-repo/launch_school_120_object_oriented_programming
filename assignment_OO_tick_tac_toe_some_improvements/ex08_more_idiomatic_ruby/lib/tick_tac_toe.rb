@@ -19,7 +19,7 @@ class TTTGame
   end
 
   def computer_moves
-    board.squares[board.unmarked_keys.sample].marker = computer.marker
+    board[board.unmarked_keys.sample] = computer.marker
   end
 
   def reset
