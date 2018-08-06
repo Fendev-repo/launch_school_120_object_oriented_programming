@@ -28,13 +28,16 @@ class TTTGame
     print_lets_play_again
   end
 
+  def players
+    { human: human, computer: computer }
+  end
+
   def play
     clear_cli
     display_welcome_message
 
     loop do
-      board.display_board(human: human, computer: computer)
-
+      board.display_board(players)
       loop do
         human_moves
         break if board.someone_won? || board.full?
@@ -43,7 +46,7 @@ class TTTGame
         break if board.someone_won? || board.full?
 
         clear_cli
-        board.display_board(human: human, computer: computer)
+        board.display_board(players)
       end
       display_result
       break unless play_again?
@@ -56,11 +59,3 @@ end
 # we'll kick off the game like this
 game = TTTGame.new
 game.play
-
-
-
-
-
-
-
-

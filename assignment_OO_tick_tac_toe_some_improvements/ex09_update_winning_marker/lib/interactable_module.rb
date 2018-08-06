@@ -31,7 +31,7 @@ module Interactable
   def display_result
     clear_cli
     board.display_board(human: human, computer: computer)
-
+    # binding.pry
     case board.winning_marker
     when human.marker
       puts 'You won!'

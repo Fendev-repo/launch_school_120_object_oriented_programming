@@ -26,7 +26,7 @@ class Board
   end
 
   def someone_won?
-    winning_marker ? winning_marker : nil
+    winning_marker != nil
   end
 
   def count_human_marker(sqrs)
@@ -60,40 +60,39 @@ class Board
     puts ''
   end
 
-  def win_line_occupied?(ary)
-    squares[ary[0]].marker != ' ' &&
-      squares[ary[1]].marker != ' ' &&
-      squares[ary[2]].marker != ' '
-  end
-
-  def win_patterns
+  # Returns array of winning lines that are not empty
+  def populated_win_lines
     WINNING_LINES.select do |line|
-      win_line_occupied?(line)
+      squares[line[0]].marker != ' ' &&
+        squares[line[1]].marker != ' ' &&
+        squares[line[2]].marker != ' '
     end
   end
 
-  def winning_pattern_markers_not_uniform?
-    ary = win_patterns
-    first_marker  = squares[ary[0][0]].marker
-    second_marker = squares[ary[0][1]].marker
-    third_marker  = squares[ary[0][2]].marker
-    [first_marker, second_marker, third_marker].uniq.length > 1
+  # Returns winning marker when marker is positioned at each position of
+  # winning line
+  def win_line_with_uniform_markers
+    populated_win_lines.select do |line|
+      pos1 = squares[line[0]]
+      pos2 = squares[line[1]]
+      pos3 = squares[line[2]]
+      [pos1.marker, pos2.marker, pos3.marker].uniq.length == 1
+    end
   end
 
-  def what_is_the_winning_marker
-    ary = win_patterns
-    squares[ary[0][0]].marker
+  def there_is_a_win_line_with_uniform_markers?
+    win_line_with_uniform_markers.empty? ? nil : true
   end
 
-  def no_winning_patterns_are_ocupied?
-    win_patterns.empty?
+  def win_maker
+    winners = win_line_with_uniform_markers[0][0]
+    squares[winners].marker
   end
 
-  #  Needs to return 'X' or 'O' or nil
+  # returns 'X' or 'O' or nil
   def winning_marker
-    return nil if no_winning_patterns_are_ocupied?
-    return nil if winning_pattern_markers_not_uniform?
-    what_is_the_winning_marker
+    return nil if populated_win_lines.empty?
+    there_is_a_win_line_with_uniform_markers? ? win_maker : nil
   end
 
   def reset
