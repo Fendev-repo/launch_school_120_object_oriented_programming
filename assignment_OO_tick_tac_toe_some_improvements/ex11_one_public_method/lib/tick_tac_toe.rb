@@ -20,25 +20,22 @@ class TTTGame
     @players_turn = true
   end
 
-
   def play
     loop do
       prep_game
-
       loop do
         current_player_moves
         break if board.someone_won? || board.full?
-        board.clear_screen_and_display_board(players) if human_turn?   
+        board.clear_screen_and_display_board(players) if human_turn?
       end
-
       display_result
       break unless play_again?
       reset
     end
     display_goodbye_message
   end
-  
-private
+
+  private
 
   def computer_moves
     board[board.unmarked_keys.sample] = computer.marker
