@@ -5,7 +5,7 @@ Other than initialize, the TTTGame class only has one public method: play. The r
 
 ### Problem decomposition - PEDAC (Method level problem solving)
 	-	Description
-		- A simply refactor to make all methods in TTTGame private except play()
+		- A simply refactor to correct Rubocop cops
 	- Sub-problems
 
 ### Examples
