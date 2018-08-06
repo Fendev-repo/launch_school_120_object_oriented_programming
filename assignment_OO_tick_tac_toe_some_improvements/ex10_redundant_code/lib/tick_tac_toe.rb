@@ -10,7 +10,7 @@ class TTTGame
   HUMAN_MARKER = 'X'.freeze
   COMPUTER_MARKER = 'O'.freeze
 
-  attr_reader :board, :human, :computer 
+  attr_reader :board, :human, :computer
   attr_accessor :players_turn
 
   def initialize
@@ -56,13 +56,13 @@ class TTTGame
   end
 
   def play
-    loop do 
-      prep_game  
+    loop do
+      prep_game
 
       loop do
         current_player_moves
         break if board.someone_won? || board.full?
-        board.clear_screen_and_display_board(players) if human_turn?      
+        board.clear_screen_and_display_board(players) if human_turn?   
       end
 
       display_result
