@@ -8,39 +8,73 @@ class TTTGame
   HUMAN_MARKER = 'X'.freeze
   COMPUTER_MARKER = 'O'.freeze
   FIRST_TO_MOVE = HUMAN_MARKER
+  WIN_SCORE = 3
 
-  attr_reader :board, :human, :computer
+  attr_reader :board, :human, :computer, :score
 
   def initialize
     @board = Board.new
     @human = Player.new(HUMAN_MARKER)
     @computer = Player.new(COMPUTER_MARKER)
     @current_marker = FIRST_TO_MOVE
+    @score = { human: 0, computer: 0 }
   end
 
   def play
     clear
     display_welcome_message
 
+    # Play loop - break when player is finished playing program.
     loop do
-      display_board
 
+      # Game loop - break when the winning score is reached
       loop do
-        current_player_moves
-        break if board.someone_won? || board.full?
-        clear_screen_and_display_board if human_turn?
-      end
+        display_board
 
-      display_result
+        # Round loop - break when round is won or tied
+        loop do
+          current_player_moves
+          break if board.someone_won? || board.full?
+          clear_screen_and_display_board if human_turn?
+        end
+      
+        update_score
+        display_result
+        break if winning_score_reached?
+        reset
+        display_play_again_message
+      end
+        
       break unless play_again?
-      reset
-      display_play_again_message
+      reset_board_and_score
     end
 
     display_goodbye_message
   end
 
   private
+
+  def reset_board_and_score
+    reset
+    @score = { human: 0, computer: 0 }
+  end
+
+  def winning_score_reached?
+    score.values.any? { |v| v >= WIN_SCORE }
+  end
+
+  def present_score_board
+    puts "Current score:"
+    puts "Human: #{score[:human]} wins"
+    puts "Computer: #{score[:computer]} wins"
+  end
+
+  def update_score
+    case board.winning_marker
+    when HUMAN_MARKER then @score[:human] += 1
+    when COMPUTER_MARKER then @score[:computer] += 1  
+    end
+  end
 
   def display_welcome_message
     puts 'Welcome to Tic Tac Toe!'
@@ -62,6 +96,8 @@ class TTTGame
 
   def display_board
     puts "You're a #{human.marker}. Computer is a #{computer.marker}."
+    puts ''
+    present_score_board
     puts ''
     board.draw
     puts ''

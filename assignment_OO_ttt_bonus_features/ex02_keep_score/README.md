@@ -1,30 +1,40 @@
 # Assignment: TTT Bonus Features
 
 ## Exercise description
-At this point you should have a simple command line Tic Tac Toe game working properly. Let's try to add some additional features.
+Keep score of how many times the player and computer each win. Don't use global or constant variables. Make it so that the first player to 5 wins the game.
 
-Improved "join"
+### Problem decomposition
+	- Description
+		- The game now requires that a score of round wins is maintained.
+			When the score reaches 5 wins for either player, the game is over
+			and the first player whom reaches 5 wins is the game winnier.
+	- Sub-problems
+		- What object should keep the score?
+			- I think its reasonable for a Board to keep the score
 
-If we run the current game, we'll see the following prompt:
+		- How will the score be persisted during the game?
+			- I think a Hash object will be fine.
+				score: {human: 0, computer: 2 }
 
-```ruby
-=> Choose a position to place a piece: 1, 2, 3, 4, 5, 6, 7, 8, 9
-```
-This is ok, but we'd like for this message to read a little better. We want to separate the last item with a "or", so that it reads:
+		- What is a good way of presenting the score during each game?
+			"Current score: ""
+			"Human: #{board.human_wins} wins" 
+			"Computer: is on #{board.computer_wins} wins"
 
-```ruby
-=> Choose a position to place a piece: 1, 2, 3, 4, 5, 6, 7, 8, or 9
-```
+		- How will we know when the winning game score is reached?
+			- Based on the board maintaining the score Hsh, then 
+				a method that checks if either player or computer
+				have reached >= 5 wins.
+				board.winning_score_reached?
+					=> true
+					=> false
+				score.values.any? {|v| v >= 5}
 
-Currently, we're using the Array#join method, which can only insert a delimiter between the array elements, and isn't smart enough to display a joining word for the last element.
+		- How will I update the score when a round is won?
+			- Based on the score being kept in the Board class
+				I think a simple method like 
+					board.add_to_score(:player)	
+					board.add_to_score(:computer)	
 
-Write a method called joinor that will produce the following result:
-
-```ruby
-joinor([1, 2])                   # => "1 or 2"
-joinor([1, 2, 3])                # => "1, 2, or 3"
-joinor([1, 2, 3], '; ')          # => "1; 2; or 3"
-joinor([1, 2, 3], ', ', 'and')   # => "1, 2, and 3"
-```
-
-Then, use this method in the TTT game when prompting the user to mark a square.
+		- Do I need a custom object for keeping the score?
+			- no, a Hash will be fine.
