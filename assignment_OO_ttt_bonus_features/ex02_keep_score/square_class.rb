@@ -1,4 +1,4 @@
-# Responsible for representing the squares that make up a board
+# Object which represents marker in game
 class Square
   INITIAL_MARKER = ' '.freeze
 
@@ -14,5 +14,9 @@ class Square
 
   def unmarked?
     marker == INITIAL_MARKER
+  end
+
+  def marked?
+    marker != INITIAL_MARKER
   end
 end

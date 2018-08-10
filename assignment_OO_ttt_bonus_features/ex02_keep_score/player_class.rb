@@ -1,4 +1,4 @@
-# Responsible for representing the player object
+# Object which represents player in game
 class Player
   attr_reader :marker
 
