@@ -1,9 +1,10 @@
+# Object which represents marker in game
 class Square
-  INITIAL_MARKER = " "
+  INITIAL_MARKER = ' '.freeze
 
   attr_accessor :marker
 
-  def initialize(marker=INITIAL_MARKER)
+  def initialize(marker = INITIAL_MARKER)
     @marker = marker
   end
 

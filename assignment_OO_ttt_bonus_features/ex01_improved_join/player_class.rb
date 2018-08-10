@@ -1,3 +1,4 @@
+# Object which represents player in game
 class Player
   attr_reader :marker
 

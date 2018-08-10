@@ -1,10 +1,12 @@
 require_relative 'board_class'
 require_relative 'player_class'
 require_relative 'square_class'
+require 'pry-byebug'
 
+# Object which orchestrates game
 class TTTGame
-  HUMAN_MARKER = "X"
-  COMPUTER_MARKER = "O"
+  HUMAN_MARKER = 'X'.freeze
+  COMPUTER_MARKER = 'O'.freeze
   FIRST_TO_MOVE = HUMAN_MARKER
 
   attr_reader :board, :human, :computer
@@ -41,12 +43,12 @@ class TTTGame
   private
 
   def display_welcome_message
-    puts "Welcome to Tic Tac Toe!"
-    puts ""
+    puts 'Welcome to Tic Tac Toe!'
+    puts ''
   end
 
   def display_goodbye_message
-    puts "Thanks for playing Tic Tac Toe! Goodbye!"
+    puts 'Thanks for playing Tic Tac Toe! Goodbye!'
   end
 
   def clear_screen_and_display_board
@@ -60,20 +62,26 @@ class TTTGame
 
   def display_board
     puts "You're a #{human.marker}. Computer is a #{computer.marker}."
-    puts ""
+    puts ''
     board.draw
-    puts ""
+    puts ''
+  end
+
+  def joiner(unmarked_keys, delimiter = ', ', last_num_seperator = ' or ')
+    copy_of_keys = unmarked_keys.dup
+    return unmarked_keys.first if unmarked_keys.length < 2
+    last_num = copy_of_keys.pop
+    "#{copy_of_keys.join(delimiter)} #{last_num_seperator} #{last_num}"
   end
 
   def human_moves
-    puts "Choose a square (#{board.unmarked_keys.join(', ')}): "
+    puts "Choose a square #{joiner(board.unmarked_keys)}:"
     square = nil
     loop do
       square = gets.chomp.to_i
       break if board.unmarked_keys.include?(square)
       puts "Sorry, that's not a valid choice."
     end
-
     board[square] = human.marker
   end
 
@@ -96,9 +104,9 @@ class TTTGame
 
     case board.winning_marker
     when human.marker
-      puts "You won!"
+      puts 'You won!'
     when computer.marker
-      puts "Computer won!"
+      puts 'Computer won!'
     else
       puts "It's a tie!"
     end
@@ -107,17 +115,17 @@ class TTTGame
   def play_again?
     answer = nil
     loop do
-      puts "Would you like to play again? (y/n)"
+      puts 'Would you like to play again? (y/n)'
       answer = gets.chomp.downcase
       break if %w(y n).include? answer
-      puts "Sorry, must be y or n"
+      puts 'Sorry, must be y or n'
     end
 
     answer == 'y'
   end
 
   def clear
-    system "clear"
+    system 'clear'
   end
 
   def reset
@@ -128,7 +136,7 @@ class TTTGame
 
   def display_play_again_message
     puts "Let's play again!"
-    puts ""
+    puts ''
   end
 end
 
