@@ -1,10 +1,9 @@
-# Responsible for representing the squares that make up a board
 class Square
-  INITIAL_MARKER = ' '.freeze
+  INITIAL_MARKER = " "
 
   attr_accessor :marker
 
-  def initialize(marker = INITIAL_MARKER)
+  def initialize(marker=INITIAL_MARKER)
     @marker = marker
   end
 
@@ -14,5 +13,9 @@ class Square
 
   def unmarked?
     marker == INITIAL_MARKER
+  end
+
+  def marked?
+    marker != INITIAL_MARKER
   end
 end
