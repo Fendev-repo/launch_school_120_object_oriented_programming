@@ -205,7 +205,6 @@ class TTTGame
 
   def reset
     board.reset
-    @current_marker = FIRST_TO_MOVE
     clear
   end
 
