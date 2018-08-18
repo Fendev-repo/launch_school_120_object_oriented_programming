@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 # Object respsonsible for representing a collection of cards
 class Deck
   SUITES = [:hearts, :trumps, :spades, :diamonds].freeze

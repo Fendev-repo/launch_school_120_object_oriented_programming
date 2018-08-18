@@ -1,4 +1,3 @@
-require 'pry-byebug'
 require_relative 'cli_display_module'
 require_relative 'Competitor_class'
 require_relative 'deck_class'
